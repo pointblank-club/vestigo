@@ -1,0 +1,41 @@
+{
+  "job_id": "13db6fb9-f3ef-4a23-8040-24dd3b1006fa",
+  "binary_path": "/home/shinichi/Documents/VSC/vestigo-data/backend/analysis_workspace/tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.o_analysis/tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.elf",
+  "binary_name": "tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.elf",
+  "analysis_timestamp": 1765233949.4922976,
+  "execution_time": 0.5416970252990723,
+  "status": "completed",
+  "analysis_tool": "qiling_dynamic_analysis",
+  "phases": {
+    "packer_detection": {
+      "packed": false
+    },
+    "yara_analysis": {
+      "detected": [
+        "COMPRESSION",
+        "RSA"
+      ],
+      "total_matches": 30,
+      "scan_time": 0.0
+    },
+    "constant_detection": {
+      "algorithms_detected": [],
+      "count": 0
+    },
+    "function_symbols": {
+      "detected": false,
+      "stripped": true
+    },
+    "dynamic_analysis": {}
+  },
+  "verdict": {
+    "crypto_detected": false,
+    "confidence": "HIGH",
+    "confidence_score": 10,
+    "reasons": [
+      "No crypto functions, constants, or known algorithms detected"
+    ]
+  },
+  "raw_output": "/home/shinichi/Documents/VSC/vestigo-data/backend/analysis_workspace/tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.o_analysis/tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.elf: ELF 64-bit LSB relocatable, ARM aarch64, version 1 (SYSV), with debug_info, not stripped\n[*] Analysis output will be saved to: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/analysis_logs/analysis_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log\n[*] Starting analysis at: 2025-12-09 04:15:49\n\n======= FILE DESCRIPTON ======\n\n============================================================\n[*] PHASE -1: Checking for packed binary...\n[-] No packer detected\n[+] Detected architecture: arm64\n[*] Target: tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.elf\n[*] Rootfs: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/rootfs/arm64_linux\n\n============================================================\n[*] PHASE 0: YARA static analysis\n[\u2713] YARA detected: COMPRESSION, RSA\n    Total matches: 30\n    Scan time: 0.000s\n\n============================================================\n[*] PHASE 1: Scanning for crypto constants...\n[-] No crypto constants detected\n\n============================================================\n[*] PHASE 2: Checking for function symbols...\n[-] No crypto function names detected (stripped/obfuscated binary)\n[*] Switching to enhanced behavioral analysis...\n\n============================================================\n[*] PHASE 3: Dynamic behavioral analysis...\n\n======================================================================\n   NATIVE STRACE ANALYSIS (Optional)\n======================================================================\n[*] Running native strace on binary...\n    Strace log: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/strace_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log\n    Terminal output: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/terminal_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log\n[\u2713] strace log captured: 5146 bytes\n[\u2713] Terminal output captured: 32 bytes\n[*] Analyzing strace log...\n[*] Strace Statistics:\n    Total syscalls: 2\n\n[!] FATAL ERROR: invalid module: symbol init_module not found\n",
+  "errors": "/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/qiling_env/lib/python3.12/site-packages/capstone/__init__.py:267: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources\nTraceback (most recent call last):\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/verify_crypto.py\", line 1865, in <module>\n    analyze_binary()\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/verify_crypto.py\", line 1328, in analyze_binary\n    run_stripped_binary_analysis(analysis_target, rootfs_path, filename, constant_results)\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/verify_crypto.py\", line 964, in run_stripped_binary_analysis\n    ql = Qiling([temp_binary], rootfs_path, verbose=QL_VERBOSE.OFF, console=True)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/qiling/qiling/core.py\", line 195, in __init__\n    self.loader.run()\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/qiling/qiling/loader/elf.py\", line 103, in run\n    self.load_driver(elffile, top_of_stack, loadbase=0x8000000)\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/qiling/qiling/loader/elf.py\", line 613, in load_driver\n    init_module = loadbase + self.lkm_get_init(elffile)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/qiling/qiling/loader/elf.py\", line 438, in lkm_get_init\n    raise QlErrorELFFormat('invalid module: symbol init_module not found')\nqiling.exception.QlErrorELFFormat: invalid module: symbol init_module not found\n"
+}

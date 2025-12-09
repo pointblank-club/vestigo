@@ -1,0 +1,43 @@
+[*] Analysis output will be saved to: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/analysis_logs/analysis_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log
+[*] Starting analysis at: 2025-12-09 04:15:49
+
+======= FILE DESCRIPTON ======
+
+============================================================
+[*] PHASE -1: Checking for packed binary...
+[-] No packer detected
+[+] Detected architecture: arm64
+[*] Target: tmpg27iok30_libcrypto-lib-md5_sha1.o_openssl_arm64_O3.elf
+[*] Rootfs: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/rootfs/arm64_linux
+
+============================================================
+[*] PHASE 0: YARA static analysis
+[✓] YARA detected: COMPRESSION, RSA
+    Total matches: 30
+    Scan time: 0.000s
+
+============================================================
+[*] PHASE 1: Scanning for crypto constants...
+[-] No crypto constants detected
+
+============================================================
+[*] PHASE 2: Checking for function symbols...
+[-] No crypto function names detected (stripped/obfuscated binary)
+[*] Switching to enhanced behavioral analysis...
+
+============================================================
+[*] PHASE 3: Dynamic behavioral analysis...
+
+======================================================================
+   NATIVE STRACE ANALYSIS (Optional)
+======================================================================
+[*] Running native strace on binary...
+    Strace log: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/strace_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log
+    Terminal output: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/terminal_tmpg27iok30_libcrypto-lib-md5_sha1_o_openssl_arm64_O3_elf_20251209_041549.log
+[✓] strace log captured: 5146 bytes
+[✓] Terminal output captured: 32 bytes
+[*] Analyzing strace log...
+[*] Strace Statistics:
+    Total syscalls: 2
+
+[!] FATAL ERROR: invalid module: symbol init_module not found

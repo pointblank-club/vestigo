@@ -1,0 +1,43 @@
+[*] Analysis output will be saved to: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/analysis_logs/analysis_tmpbp9ffawo_libcrypto-lib-ecx_backend_o_openssl_riscv_Os_elf_20251209_084119.log
+[*] Starting analysis at: 2025-12-09 08:41:19
+
+======= FILE DESCRIPTON ======
+
+============================================================
+[*] PHASE -1: Checking for packed binary...
+[-] No packer detected
+[+] Detected architecture: riscv64
+[*] Target: tmpbp9ffawo_libcrypto-lib-ecx_backend.o_openssl_riscv_Os.elf
+[*] Rootfs: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/rootfs/riscv64_linux
+
+============================================================
+[*] PHASE 0: YARA static analysis
+[✓] YARA detected: COMPRESSION, RSA
+    Total matches: 308
+    Scan time: 0.000s
+
+============================================================
+[*] PHASE 1: Scanning for crypto constants...
+[-] No crypto constants detected
+
+============================================================
+[*] PHASE 2: Checking for function symbols...
+[-] No crypto function names detected (stripped/obfuscated binary)
+[*] Switching to enhanced behavioral analysis...
+
+============================================================
+[*] PHASE 3: Dynamic behavioral analysis...
+
+======================================================================
+   NATIVE STRACE ANALYSIS (Optional)
+======================================================================
+[*] Running native strace on binary...
+    Strace log: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/strace_tmpbp9ffawo_libcrypto-lib-ecx_backend_o_openssl_riscv_Os_elf_20251209_084119.log
+    Terminal output: /home/shinichi/Documents/VSC/vestigo-data/qiling_analysis/tests/strace_logs/terminal_tmpbp9ffawo_libcrypto-lib-ecx_backend_o_openssl_riscv_Os_elf_20251209_084119.log
+[✓] strace log captured: 5217 bytes
+[✓] Terminal output captured: 32 bytes
+[*] Analyzing strace log...
+[*] Strace Statistics:
+    Total syscalls: 2
+
+[!] FATAL ERROR: invalid module: symbol init_module not found
