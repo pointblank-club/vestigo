@@ -75,8 +75,10 @@ review them quickly.
 
 ## Issues and feature requests
 
-- Open an issue with a clear summary, steps to reproduce (if a bug), and expected
-  vs actual behaviour. For features, include rough UX and acceptance criteria.
+- Use the issue templates (`Bug report` or `Feature request`) so items are labeled
+  automatically for triage.
+- Include a clear summary, steps to reproduce (if a bug), and expected vs actual
+  behaviour. For features, include rough UX and acceptance criteria.
 
 ## Security disclosures
 

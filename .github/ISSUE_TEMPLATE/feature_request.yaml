@@ -1,0 +1,43 @@
+name: Feature request
+description: Suggest an idea or improvement for Vestigo
+title: "[Feature]: "
+labels:
+  - enhancement
+  - needs triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us about the improvement you want to see. Clear acceptance criteria and context help us prioritize.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the feature or change.
+      placeholder: e.g. Add support for batch uploading binaries in the backend UI
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this needed? What problem does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Outline how this should work, including APIs, UI flows, or CLI flags.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: List any alternatives you tried or considered.
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add links to related issues, docs, or prior discussions.
