@@ -64,7 +64,7 @@ multiprocess==0.70.18
 mypy==1.19.0
 mypy_extensions==1.1.0
 networkx==3.5
-nodeenv==1.9.1
+nodeenv==1.10.0
 numpy==2.3.5
 openai==2.9.0
 overrides==7.7.0
