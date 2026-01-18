@@ -93,7 +93,7 @@ pyfiglet==1.0.2
 pyflakes==3.4.0
 Pygments==2.19.2
 pyparsing==3.2.5
-pyperclip==1.9.0
+pyperclip==1.11.0
 pytest==9.0.1
 pytest-cov==7.0.0
 python-dateutil==2.9.0.post0
