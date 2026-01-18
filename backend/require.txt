@@ -49,7 +49,7 @@ iniconfig==2.3.0
 Jinja2==3.1.6
 jiter==0.12.0
 joblib==1.5.2
-jsonpath-ng==1.6.1
+jsonpath-ng==1.7.0
 keystone-engine==0.9.2
 kiwisolver==1.4.9
 librt==0.7.2
