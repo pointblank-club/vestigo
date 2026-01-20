@@ -27,7 +27,7 @@ class QilingDynamicAnalysisService:
     
     def __init__(self):
         # Path to qiling_analysis directory
-        self.project_root = Path(__file__).parent.parent.parent
+        self.project_root = Path(__file__).resolve().parent.parent.parent
         self.qiling_analysis_dir = self.project_root / "qiling_analysis"
         self.verify_crypto_script = self.qiling_analysis_dir / "tests" / "verify_crypto.py"
         

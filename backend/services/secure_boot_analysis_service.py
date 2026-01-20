@@ -13,7 +13,9 @@ from pathlib import Path
 from config.logging_config import logger
 
 # Add parent directory to path
-parent_dir = Path(__file__).parent.parent.parent
+# Add parent directory to path
+# Use resolve() for robust absolute path
+parent_dir = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(parent_dir))
 
 class SecureBootAnalysisService:

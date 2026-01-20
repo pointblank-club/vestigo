@@ -10,6 +10,7 @@ ENV GHIDRA_INSTALL_DIR=/opt/ghidra
 ENV QILING_DIR=/opt/vestigo/qiling_analysis/qiling
 ENV ROOTFS_DIR=/opt/vestigo/qiling_analysis/rootfs
 ENV PATH="$VENV_DIR/bin:$GHIDRA_INSTALL_DIR/support:$PATH"
+ENV PYTHONPATH="/app:/app/scripts:/app/backend:$PYTHONPATH"
 
 # 1. Install System Dependencies & Cross-Compilers
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -82,45 +83,45 @@ RUN python3 -m venv "$VENV_DIR" && \
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu && \
     # Install main dependencies
     pip install \
-        'fastapi>=0.100.0' \
-        'uvicorn>=0.23.0' \
-        'python-multipart>=0.0.6' \
-        'pydantic>=2.0.0' \
-        'python-dotenv>=1.0.0' \
-        'python-magic>=0.4.27' \
-        'requests>=2.31.0' \
-        'prisma>=0.11.0' \
-        'scikit-learn>=1.3.0' \
-        'lightgbm>=4.0.0' \
-        'pandas>=2.0.0' \
-        'numpy>=1.24.0' \
-        'joblib>=1.3.0' \
-        'pyelftools>=0.28' \
-        'capstone>=4.0.0' \
-        'yara-python>=4.0.0' \
-        'pycryptodome>=3.15.0' \
-        'z3-solver>=4.11.0' \
-        'binwalk' \
-        'unicorn==2.1.3' \
-        'keystone-engine>=0.9.2' \
-        'pefile>=2022.5.30' \
-        'python-registry>=1.3.1' \
-        'gevent>=20.9.0' \
-        'multiprocess>=0.70.12.2' \
-        'pyyaml>=6.0.1' \
-        'python-fx' \
-        'questionary' \
-        'termcolor' \
-        'openai>=1.0.0' \
-        'colorama>=0.4.6' \
-        'tqdm>=4.65.0' \
-        'rich>=13.0.0' \
-        'loguru>=0.7.0' \
-        'pytest>=7.0.0' \
-        'torch-geometric>=2.3.0' \
-        'matplotlib>=3.7.0' \
-        'seaborn>=0.12.0' \
-        'networkx>=2.6.0'
+    'fastapi>=0.100.0' \
+    'uvicorn>=0.23.0' \
+    'python-multipart>=0.0.6' \
+    'pydantic>=2.0.0' \
+    'python-dotenv>=1.0.0' \
+    'python-magic>=0.4.27' \
+    'requests>=2.31.0' \
+    'prisma>=0.11.0' \
+    'scikit-learn>=1.3.0' \
+    'lightgbm>=4.0.0' \
+    'pandas>=2.0.0' \
+    'numpy>=1.24.0' \
+    'joblib>=1.3.0' \
+    'pyelftools>=0.28' \
+    'capstone>=4.0.0' \
+    'yara-python>=4.0.0' \
+    'pycryptodome>=3.15.0' \
+    'z3-solver>=4.11.0' \
+    'binwalk' \
+    'unicorn==2.1.3' \
+    'keystone-engine>=0.9.2' \
+    'pefile>=2022.5.30' \
+    'python-registry>=1.3.1' \
+    'gevent>=20.9.0' \
+    'multiprocess>=0.70.12.2' \
+    'pyyaml>=6.0.1' \
+    'python-fx' \
+    'questionary' \
+    'termcolor' \
+    'openai>=1.0.0' \
+    'colorama>=0.4.6' \
+    'tqdm>=4.65.0' \
+    'rich>=13.0.0' \
+    'loguru>=0.7.0' \
+    'pytest>=7.0.0' \
+    'torch-geometric>=2.3.0' \
+    'matplotlib>=3.7.0' \
+    'seaborn>=0.12.0' \
+    'networkx>=2.6.0'
 
 # 5. Install Qiling & Rootfs
 # Note: We clone to specific paths but Qiling needs editable install or standard install.
@@ -135,10 +136,10 @@ RUN git clone https://github.com/qilingframework/qiling.git "${QILING_DIR}" && \
 # Note: This requires DATABASE_URL to be set at runtime or build time if schema validation needs it.
 # We'll skip generation here and rely on entrypoint or manual run if env vars are missing.
 RUN if [ -f /app/backend/prisma/schema.prisma ]; then \
-        . "$VENV_DIR/bin/activate" && \
-        cd /app/backend && \
-        # Attempt generation, but don't fail build if DB URL missing
-        prisma generate || echo "Prisma generation skipped (needs DATABASE_URL)"; \
+    . "$VENV_DIR/bin/activate" && \
+    cd /app/backend && \
+    # Attempt generation, but don't fail build if DB URL missing
+    prisma generate || echo "Prisma generation skipped (needs DATABASE_URL)"; \
     fi
 
 # 7. Finalize

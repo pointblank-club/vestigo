@@ -13,7 +13,9 @@ import re
 from config.logging_config import logger
 
 # Add parent directory to path to import fs_scan module if it exists
-parent_dir = Path(__file__).parent.parent.parent
+# Add parent directory to path to import fs_scan module if it exists
+# Use resolve() for robust absolute path
+parent_dir = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(parent_dir))
 
 class FilesystemScanService:

@@ -11,9 +11,21 @@ from typing import Dict, Any, Optional
 import uuid
 from pathlib import Path
 
-# Add parent directory to path to import ingest module
-parent_dir = Path(__file__).parent.parent.parent
-sys.path.append(str(parent_dir))
+# Add scripts directory to path to import ingest module
+# Add scripts directory to path to import ingest module
+# Use resolve() to ensure we get the absolute path, avoiding issues with relative paths in containers
+file_path = Path(__file__).resolve()
+parent_dir = file_path.parent.parent.parent
+scripts_dir = parent_dir / "scripts"
+
+# Add to sys.path if not present
+if str(scripts_dir) not in sys.path:
+    sys.path.append(str(scripts_dir))
+    # We can't use logger here easily as it might not be initialized or circular import
+    print(f"Added scripts directory to sys.path: {scripts_dir}")
+
+if not scripts_dir.exists():
+    print(f"WARNING: Scripts directory not found at {scripts_dir}")
 
 from ingest import IngestionModule
 from config.logging_config import logger

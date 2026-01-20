@@ -17,7 +17,7 @@ class ControlFlowAnalyzer:
     
     def __init__(self):
         # Path to test1.sh script
-        self.script_path = Path(__file__).parent.parent / "test1.sh"
+        self.script_path = Path(__file__).resolve().parent.parent / "test1.sh"
         if not self.script_path.exists():
             logger.warning(f"test1.sh not found at {self.script_path}")
             self.script_path = None
@@ -102,7 +102,7 @@ class ControlFlowAnalyzer:
             logger.info(f"JobID: {job_id} - Starting control flow analysis on {binary_path} (arch: {architecture})")
             
             # Create output directory for this job's CFG files
-            cfg_dir = Path(__file__).parent.parent / "job_storage" / f"{job_id}_cfg"
+            cfg_dir = Path(__file__).resolve().parent.parent / "job_storage" / f"{job_id}_cfg"
             cfg_dir.mkdir(parents=True, exist_ok=True)
             
             # Change to binary's directory to run script (it outputs files in current dir)

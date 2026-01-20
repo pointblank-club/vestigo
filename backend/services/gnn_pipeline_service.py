@@ -25,7 +25,7 @@ class GNNPipelineService:
     
     def __init__(self):
         # Path to project root and GNN script
-        self.project_root = Path(__file__).parent.parent.parent
+        self.project_root = Path(__file__).resolve().parent.parent.parent
         self.gnn_script = self.project_root / "ml" / "new_gnn.py"
         
         # Output directory for GNN results
