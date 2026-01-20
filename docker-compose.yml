@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vestigo-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/opt/vestigo/data
+      - ./backend/prisma:/app/backend/prisma
+    tty: true
+    stdin_open: true
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: vestigo-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend

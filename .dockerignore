@@ -1,0 +1,64 @@
+# Git & VCS
+.git
+.gitignore
+.github
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+npm-debug.log
+yarn-error.log
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Large generated artifacts
+data/
+dataset_output/
+batch_results/
+ghidra_output/
+ghidra_json/
+features.csv
+features.txt
+
+# ML artifacts
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.joblib
+ml/runs/
+ml/checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
