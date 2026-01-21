@@ -38,8 +38,7 @@ import { HardTargetAnalysis } from "@/components/HardTargetAnalysis";
 import { PipelineVisualization } from "@/components/PipelineVisualization";
 
 import { useEffect, useState } from "react";
-
-const API_URL = "http://localhost:8000"; // Backend URL
+import { API_CONFIG } from "@/config/api";
 
 interface JobAnalysisData {
   job_id: string;
@@ -70,7 +69,7 @@ const JobAnalysis = () => {
       if (showRefreshState) setRefreshing(true);
       else setLoading(true);
 
-      const res = await fetch(`${API_URL}/job/${jobId}/complete-analysis`);
+      const res = await fetch(`${API_CONFIG.BASE_URL}/job/${jobId}/complete-analysis`);
       const data = await res.json();
 
       if (!res.ok) {

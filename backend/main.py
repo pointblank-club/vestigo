@@ -59,6 +59,9 @@ logger.info("Vestigo Backend starting up...")
 # CORS CONFIG
 # ==========================================================
 
+# Get allowed origins from environment or use defaults
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "").split(",") if os.getenv("ALLOWED_ORIGINS") else []
+
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -68,15 +71,21 @@ origins = [
     "http://127.0.0.1:4173",
     "http://localhost:8080",
     "http://127.0.0.1:8080",
-    "https://your-production-domain.com",
+    "http://[::]:8080",  # IPv6 localhost
+    "https://vestigo.pointblank.club",  # Production domain
+    *ALLOWED_ORIGINS,  # Additional origins from environment
 ]
+
+# In development, allow all origins
+is_dev = os.getenv("ENVIRONMENT", "development") == "development"
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"] if is_dev else origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # ==========================================================

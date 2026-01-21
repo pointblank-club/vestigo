@@ -18,8 +18,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 import { useEffect, useState } from "react";
-
-const API_URL = "http://localhost:8000"; // Backend URL
+import { API_CONFIG } from "@/config/api";
 
 const JobDetail = () => {
   const { jobId } = useParams();
@@ -31,7 +30,7 @@ const JobDetail = () => {
   /** Fetch job details from backend */
   const fetchJob = async () => {
     try {
-      const res = await fetch(`${API_URL}/jobs/${jobId}`);
+      const res = await fetch(`${API_CONFIG.BASE_URL}/jobs/${jobId}`);
       const data = await res.json();
       setJob(data);
     } catch (e) {

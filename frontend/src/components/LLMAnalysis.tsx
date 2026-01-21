@@ -35,7 +35,7 @@ interface AnalysisLogData {
   available_logs: string[];
 }
 
-const API_URL = "http://localhost:8000";
+import { API_CONFIG } from "@/config/api";
 
 export const LLMAnalysisCard = ({ llmData, qilingData, jobId }: LLMAnalysisProps) => {
   const [straceLog, setStraceLog] = useState<StraceLogData | null>(null);
@@ -54,7 +54,7 @@ export const LLMAnalysisCard = ({ llmData, qilingData, jobId }: LLMAnalysisProps
       setStraceError(null);
       
       try {
-        const response = await fetch(`${API_URL}/job/${jobId}/strace-logs`);
+        const response = await fetch(`${API_CONFIG.BASE_URL}/job/${jobId}/strace-logs`);
         if (!response.ok) {
           if (response.status === 404) {
             setStraceError("No strace logs found for this binary");
@@ -86,7 +86,7 @@ export const LLMAnalysisCard = ({ llmData, qilingData, jobId }: LLMAnalysisProps
       setAnalysisError(null);
       
       try {
-        const response = await fetch(`${API_URL}/job/${jobId}/analysis-logs`);
+        const response = await fetch(`${API_CONFIG.BASE_URL}/job/${jobId}/analysis-logs`);
         if (!response.ok) {
           if (response.status === 404) {
             setAnalysisError("No analysis logs found for this binary");

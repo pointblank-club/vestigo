@@ -18,6 +18,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import { API_CONFIG } from "@/config/api";
 
 interface PipelineStep {
   id: string;
@@ -75,7 +76,7 @@ export const PipelineVisualization = ({
     const interval = setInterval(async () => {
       try {
         setIsRefreshing(true);
-        const res = await fetch(`http://localhost:8000/job/${jobId}/complete-analysis`);
+        const res = await fetch(`${API_CONFIG.BASE_URL}/job/${jobId}/complete-analysis`);
         const data = await res.json();
         setRefreshedData(data);
       } catch (err) {
