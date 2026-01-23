@@ -1,9 +1,5 @@
-const isDevelopment = import.meta.env.MODE === 'development';
-
 export const API_CONFIG = {
-  BASE_URL: isDevelopment 
-    ? 'http://localhost:8000'
-    : '',
+  BASE_URL: typeof window !== 'undefined' ? window.location.origin : '',
   
   // API Endpoints
   ENDPOINTS: {
