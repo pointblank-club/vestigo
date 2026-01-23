@@ -4,7 +4,7 @@ const isDevelopment = process.env.NODE_ENV === 'development' || !process.env.NOD
 export const API_CONFIG = {
   BASE_URL: isDevelopment 
     ? 'http://localhost:8000'
-    : process.env.VITE_API_URL || 'http://localhost:8000',
+    : '',
   
   // API Endpoints
   ENDPOINTS: {
