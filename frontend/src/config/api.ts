@@ -1,5 +1,4 @@
-// API Configuration
-const isDevelopment = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
+const isDevelopment = import.meta.env.MODE === 'development';
 
 export const API_CONFIG = {
   BASE_URL: isDevelopment 
