@@ -50,3 +50,21 @@ ghidra_json_new/
 ghidra_json/
 z_present/
 7ff8de6b-bda0-4d39-9eb6-258ad286de4a.json
+# Generated analysis artifacts
+analysis/*.json
+analysis_output/
+pipeline_output/
+
+# Ghidra generated outputs
+ghidra_output/
+ghidra_json/
+ghidra_json_new/
+
+# Build artifacts
+builds/
+builds_new/
+
+# Binary / temporary files
+*.bin
+*.elf
+*.lock
