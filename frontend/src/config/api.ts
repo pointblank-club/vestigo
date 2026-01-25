@@ -11,7 +11,7 @@ export const API_CONFIG = {
     JOB_CFG: (jobId: string) => `/job/${jobId}/cfg`,
     JOB_CFG_IMAGE: (jobId: string) => `/job/${jobId}/cfg/image`,
     EXTRACT_FEATURES: (jobId: string) => `/job/${jobId}/extract-features`,
-    FS_SCAN: (jobId: string) => ` /job/${jobId}/fs-scan`,
+    FS_SCAN: (jobId: string) => `/job/${jobId}/fs-scan`,
   }
 };
 
