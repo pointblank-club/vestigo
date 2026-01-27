@@ -1,4 +1,4 @@
-# Vestigo — Firmware analysis & crypto-detection pipeline
+# Vestigo: Firmware analysis & crypto-detection pipeline
 
 Vestigo is a collection of tools, scripts and services to automate
 the process of (1) producing cross-compiled test binaries, (2)
@@ -14,18 +14,17 @@ you can get the pipeline running and contribute.
 
 ## Key project goals
 
-- Produce reproducible binary datasets (many architectures, compilers, optimizations)
-- Extract function- and trace-level features suitable for ML
+- Extract function-level and trace-level features suitable for ML
 - Provide utilities for static (Ghidra) and dynamic (Qiling) analysis
 - Offer scripts to build training CSVs and run inference
-- Provide a backend API and frontend for file upload and analysis orchestration
+- Provide a backend API and frontend for file upload and analysis
 
 ## Quick facts / highlights
 
-- Languages: Python (main tooling & backend), some shell, TypeScript/React frontend
-- Major folders: `ghidra_scripts`, `qiling_analysis`, `ml`, `backend`, `frontend`, `factory`
+- Languages: Python (main tooling & backend), TypeScript/React frontend
+- Major folders: `ghidra_scripts`, `qiling_analysis`, `ml`, `backend`, `frontend`
 - Important entry points:
-  - `generate_dataset.py` — create ML CSVs from Ghidra JSONs (optionally uses OpenAI)
+  - `generate_dataset.py` — create ML CSVs from Ghidra JSONs
     - `analyzer.py`, `bare_metal.py`, `main.py` — orchestrate analysis flows
     - `factory/builder.py` — cross-compile sources across arch/opt matrix
     - `qiling_analysis/` — dynamic tracing & batch extraction pipeline
@@ -34,10 +33,9 @@ you can get the pipeline running and contribute.
 ## Minimum prerequisites
 
 - Python 3.9+ (3.11 recommended)
-- pip and virtualenv
+- pip and virtual env
 - Ghidra (for static feature extraction using headless analyzer)
-- Qiling (optional, for dynamic tracing features)
-- Cross-compilers and QEMU for emulation (used by `factory` and `qiling_analysis`)
+- Qiling (for dynamic tracing features)
 
 See `setup.sh` for an automated environment setup script and path hints.
 
@@ -54,7 +52,7 @@ Before running the pipeline, you need to configure environment variables. Create
 2. Edit `.env` and fill in your actual values:
 
      ```bash
-     # OpenAI API Configuration (optional, for LLM-assisted labeling)
+     # OpenAI API Configuration (optional)
      OPENAI_API_KEY=your_openai_api_key_here
 
      # Ghidra Installation Path
@@ -66,7 +64,7 @@ Before running the pipeline, you need to configure environment variables. Create
      # Database Configuration
      DATABASE_URL=postgresql://user:password@localhost:5432/vestigo
 
-     # Perplexity API Configuration (optional)
+     # Perplexity API Configuration
      PERPLEXITY_API_KEY=your_perplexity_api_key_here
      ```
 
