@@ -2,8 +2,11 @@ import { Shield, Menu, X } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -57,11 +60,12 @@ export const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-              Start Analysis
-            </Button>
-          </div>
+          <Button
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            onClick={() => navigate("/upload")}
+            >
+            Start Analysis
+          </Button>
 
           {/* Mobile Menu Button */}
           <button
