@@ -27,7 +27,7 @@ RUN echo 'server { \
     server_name localhost; \
     root /usr/share/nginx/html; \
     index index.html; \
-    client_max_body_size 500M; \
+    client_max_body_size 100M; \
     \
     location / { \
         try_files $uri $uri/ /index.html; \
