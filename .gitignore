@@ -68,3 +68,8 @@ builds_new/
 *.bin
 *.elf
 *.lock
+qiling_analysis/tests/analysis_logs
+qiling_analysis/tests/strace_logs
+backend/job_storage
+backend/logs
+backend/qiling_output

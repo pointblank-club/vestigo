@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      '/analyze': 'http://localhost:8000',
+      '/api': 'http://localhost:8000',
+      '/job': 'http://localhost:8000',
+      '/jobs': 'http://localhost:8000',
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
