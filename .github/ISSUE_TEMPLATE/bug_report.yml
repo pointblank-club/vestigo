@@ -2,187 +2,64 @@ name: Bug Report
 description: Report a bug in Vestigo
 title: "[Bug]: "
 labels: ["bug", "needs-triage"]
-assignees: []
+
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Please provide as much detail as possible to help us identify and fix the issue.
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Pre-flight Checklist
-      description: Please confirm the following before submitting
-      options:
-        - label: I have searched existing issues to ensure this is not a duplicate
-          required: true
-        - label: I have read the [Contributing Guidelines](../CONTRIBUTING.md)
-          required: true
-        - label: I am running the latest version of Vestigo
-          required: false
-
-  - type: dropdown
-    id: component
-    attributes:
-      label: Component
-      description: Which component of Vestigo is affected?
-      options:
-        - Backend API
-        - Frontend UI
-        - ML/GNN Models
-        - Qiling Analysis
-        - Ghidra Scripts
-        - Protocol Analysis
-        - Dynamic Analysis
-        - Docker/Containerization
-        - Setup/Installation
-        - Other
-    validations:
-      required: true
-
-  - type: input
-    id: version
-    attributes:
-      label: Vestigo Version
-      description: What version of Vestigo are you running?
-      placeholder: "e.g., v1.0.0 or commit hash"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: os
-    attributes:
-      label: Operating System
-      description: What operating system are you using?
-      options:
-        - Ubuntu 20.04
-        - Ubuntu 22.04
-        - Debian 11
-        - Debian 12
-        - Fedora 37+
-        - Arch Linux
-        - macOS 12+
-        - macOS 13+
-        - macOS 14+
-        - Docker Container
-        - Other (specify in description)
-    validations:
-      required: true
-
-  - type: input
-    id: python-version
-    attributes:
-      label: Python Version
-      description: What Python version are you using?
-      placeholder: "e.g., 3.11.5"
-    validations:
-      required: true
+        Thanks for reporting a bug! Please fill the key details below.
 
   - type: textarea
     id: summary
     attributes:
       label: Bug Summary
-      description: A clear and concise description of the bug
-      placeholder: "Describe what went wrong..."
+      description: What’s the issue?
+      placeholder: "Briefly describe the bug..."
     validations:
       required: true
 
   - type: textarea
-    id: steps-to-reproduce
+    id: steps
     attributes:
       label: Steps to Reproduce
-      description: Detailed steps to reproduce the issue
+      description: How can we reproduce it?
       placeholder: |
-        1. Run command '...'
-        2. Navigate to '....'
-        3. Click on '....'
-        4. See error
+        1. Run '...'
+        2. Open '...'
+        3. See error
     validations:
       required: true
 
   - type: textarea
-    id: expected-behavior
+    id: expected
     attributes:
       label: Expected Behavior
-      description: What did you expect to happen?
-      placeholder: "Describe the expected outcome..."
+      placeholder: "What should have happened?"
     validations:
       required: true
 
   - type: textarea
-    id: actual-behavior
+    id: actual
     attributes:
       label: Actual Behavior
-      description: What actually happened?
-      placeholder: "Describe what actually occurred..."
+      placeholder: "What actually happened?"
     validations:
       required: true
 
   - type: textarea
-    id: error-output
+    id: logs
     attributes:
-      label: Error Output/Logs
-      description: Please paste any error messages, logs, or stack traces
-      placeholder: "Paste error output here..."
+      label: Error Logs / Screenshots
+      description: Paste logs or screenshots if available
       render: shell
     validations:
       required: false
 
-  - type: textarea
-    id: sample-files
+  - type: input
+    id: environment
     attributes:
-      label: Sample Files
-      description: If applicable, provide information about the firmware/binary files being analyzed
-      placeholder: |
-        - File type: ELF, PE, etc.
-        - Architecture: ARM, x86, MIPS, etc.
-        - Size: approximate file size
-        - Source: vendor name if known
-    validations:
-      required: false
-
-  - type: textarea
-    id: environment-details
-    attributes:
-      label: Environment Details
-      description: Additional environment information
-      placeholder: |
-        - Virtual environment path:
-        - Docker version (if using):
-        - Available memory:
-        - Available disk space:
-        - Any custom configuration:
-    validations:
-      required: false
-
-  - type: dropdown
-    id: severity
-    attributes:
-      label: Severity Level
-      description: How severe is this bug?
-      options:
-        - Critical (System crash, data loss)
-        - High (Major functionality broken)
-        - Medium (Minor functionality issue)
-        - Low (Cosmetic or documentation issue)
+      label: Environment
+      description: OS + version (e.g., Ubuntu 22.04, macOS 14)
+      placeholder: "Your environment details"
     validations:
       required: true
-
-  - type: textarea
-    id: workaround
-    attributes:
-      label: Workaround
-      description: Have you found any temporary workaround for this issue?
-      placeholder: "Describe any temporary solution..."
-    validations:
-      required: false
-
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: Additional Context
-      description: Any other context, screenshots, or relevant information
-      placeholder: "Add any other context about the problem here..."
-    validations:
-      required: false
