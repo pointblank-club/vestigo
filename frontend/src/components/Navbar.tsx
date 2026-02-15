@@ -58,9 +58,11 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-              Start Analysis
-            </Button>
+            <NavLink to="/upload">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                Start Analysis
+              </Button>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -111,9 +113,11 @@ export const Navbar = () => {
               Analysis Jobs
             </NavLink>
 
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-4">
-              Start Analysis
-            </Button>
+            <NavLink to="/upload" onClick={() => setIsOpen(false)}>
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold mt-4">
+                Start Analysis
+              </Button>
+            </NavLink>
           </div>
         )}
       </div>
